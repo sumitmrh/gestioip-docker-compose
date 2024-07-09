@@ -1,0 +1,24 @@
+# Global settings
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds.
+
+# Scrape configuration
+scrape_configs:
+
+  # Monitor the Prometheus server itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Monitor cAdvisor
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:9091']
+
+  # Monitor Node Exporter
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+
